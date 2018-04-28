@@ -39,7 +39,8 @@
       }
 
       #menu {
-        visibility: hidden; /* hides menu */
+        /* Hide menu */
+        visibility: hidden;
         opacity: 0;
         position: absolute;
         top: 100%;
@@ -57,11 +58,13 @@
       :host(:focus) #menu,
       :host(:focus-within) #menu,
       :host(:hover) #menu {
-        visibility: visible; /* shows menu */
+        /* Show menu */
+        visibility: visible;
         opacity: 1;
         z-index: 2;
         transform: translateY(0%);
-        transition-delay: 0s, 0s, 0.3s; /* this removes the transition delay so the menu will be visible while the other styles transition */
+        /* Remove transition delay so menu is visible while transitioning */
+        transition-delay: 0s, 0s, 0.3s;
       }
 
       #menu li > a {
@@ -100,17 +103,6 @@
 
       connectedCallback() {
         super.connectedCallback();
-
-        // const contentChildren = this.shadowRoot
-        //   .querySelector('slot')
-        //   .assignedNodes({flatten:true})
-        //   .filter(n => n.nodeType === Node.ELEMENT_NODE);
-        //
-        // contentChildren.forEach((el, i) => {
-        //   const wrapper = document.createElement('li');
-        //   el.parentNode.insertBefore(wrapper, el);
-        //   wrapper.appendChild(el);
-        // });
 
         const effectiveChildren = Polymer.FlattenedNodesObserver
           .getFlattenedNodes(this)
