@@ -14,6 +14,12 @@
 
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
+
+        sl-dropdown {
+          font-size: 2em;
+          margin-right: 16px;
+        }
+
       </style>
     </custom-style>
   </head>
@@ -22,7 +28,26 @@
       <h3>Basic sl-dropdown demo</h3>
       <demo-snippet>
         <template>
-          <sl-dropdown></sl-dropdown>
+          <sl-dropdown value="Main Menu">
+            <a href="#1">Link 1</a>
+            <a href="#2">Link 2</a>
+            <a href="#3">Link 3</a>
+            <a href="#4">Link 4</a>
+          </sl-dropdown>
+
+          <style>
+            #colored {
+              --sl-dropdown-background: #39a;
+              --sl-dropdown-link-color: #fff;
+              --sl-dropdown-link-hover-color: #8ed2dd;
+            }
+          </style>
+          <sl-dropdown id="colored" value="Colored Menu">
+            <a href="#1">Link 1</a>
+            <a href="#2">Link 2</a>
+            <a href="#3">Link 3</a>
+            <a href="#4">Link 4</a>
+          </sl-dropdown>
         </template>
       </demo-snippet>
     </div>

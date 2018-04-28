@@ -7,7 +7,6 @@
         display: inline-block;
         position: relative;
         text-align: center;
-        background: #f8f8f8;
       }
 
       [hidden] {
@@ -31,6 +30,12 @@
         color: var(--sl-dropdown-link-hover-color, #666);
       }
 
+      :host > a {
+        position: relative;
+        z-index: 2;
+        background: var(--sl-dropdown-background, #f8f8f8);
+      }
+
       :host > a,
       #menu {
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
@@ -51,7 +56,7 @@
         transition: all 0.3s ease-in-out 0s,
                     visibility 0s linear 0.3s,
                     z-index 0s linear 0.01s;
-        background: var(--sl-dropdown-menu-background, #f8f8f8);
+        background: var(--sl-dropdown-menu-background, var(--sl-dropdown-background, #f8f8f8));
         font-size: var(--sl-dropdown-menu-font-size);
       }
 
@@ -76,7 +81,7 @@
       }
     </style>
 
-    <a href="javascript:void(0);">[[value]]</a>
+    <a href="javascript:void();">[[value]]</a>
     <ul id="menu"></ul>
 
   </template>
