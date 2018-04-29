@@ -32,8 +32,9 @@
 
       :host > a {
         position: relative;
-        z-index: 2;
+        z-index: 1;
         background: var(--sl-dropdown-background, #f8f8f8);
+        transition-delay: 0.3s;
       }
 
       :host > a,
@@ -51,11 +52,12 @@
         top: 100%;
         left: 0;
         width: 100%;
+        z-index: 2;
         transform: translateY(-2em);
-        z-index: 1;
         transition: all 0.3s ease-in-out 0s,
                     visibility 0s linear 0.3s,
                     z-index 0s linear 0.01s;
+        will-change: transform;
         background: var(--sl-dropdown-menu-background, var(--sl-dropdown-background, #f8f8f8));
         font-size: var(--sl-dropdown-menu-font-size);
       }
@@ -66,10 +68,17 @@
         /* Show menu */
         visibility: visible;
         opacity: 1;
-        z-index: 2;
+        z-index: 3;
         transform: translateY(0%);
         /* Remove transition delay so menu is visible while transitioning */
-        transition-delay: 0s, 0s, 0.3s;
+        transition-delay: 0s, 0s, 0.25s;
+      }
+
+      :host(:focus) > a,
+      :host(:focus-within) > a,
+      :host(:hover) > a {
+        z-index: 3;
+        transition-delay: 0s;
       }
 
       #menu li > a {
@@ -81,7 +90,7 @@
       }
     </style>
 
-    <a href="javascript:void();">[[value]]</a>
+    <a href="javascript:">[[value]]</a>
     <ul id="menu"></ul>
 
   </template>
