@@ -119,6 +119,10 @@
         effectiveChildren.forEach((el, i) => {
           const wrapper = document.createElement('li');
           wrapper.appendChild(el);
+          if (window.ShadyCSS && !window.ShadyCSS.nativeShadow) {
+            wrapper.classList.add('style-scope', 'sl-dropdown');
+            el.classList.add('style-scope', 'sl-dropdown');
+          }
           this.$.menu.appendChild(wrapper);
         });
       }
